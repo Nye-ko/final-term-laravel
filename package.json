@@ -11,7 +11,7 @@
         "types:check": "tsc --noEmit"
     },
     "dependencies": {
-        "@inertiajs/react": "^3.0.0",
+        "@inertiajs/react": "^3.9.1",
         "@inertiajs/vite": "^3.0.0",
         "@laravel/passkeys": "^0.2.0",
         "@radix-ui/react-avatar": "^1.1.3",

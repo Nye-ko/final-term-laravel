@@ -1,7 +1,7 @@
 import React from 'react';
 import { Head, Link, useForm } from '@inertiajs/react';
 
-export default function Signup({ role }) {
+export default function signup({ role }) {
     // Static configuration matching your original data structures
     const ROLE_COPY = {
         freelancer: {

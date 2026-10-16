@@ -1,7 +1,7 @@
 import React from 'react';
 import { Head, Link, useForm } from '@inertiajs/react';
 
-export default function Login() {
+export default function login() {
     // Inertia form state management simplifies your entire form handling flow
     const { data, setData, post, processing, errors } = useForm({
         email: '',

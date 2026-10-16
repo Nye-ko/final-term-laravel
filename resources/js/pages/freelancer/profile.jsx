@@ -1,85 +1,110 @@
 import React from 'react';
-import { Head, Link, router } from '@inertiajs/react';
+import { Head, Link, router, useForm } from '@inertiajs/react';
 
-export default function FreelancerProfile({ profile, loadError }) {
+export default function Profile({ currentUser, metrics = {} }) {
+    const handleLogout = (e) => {
+        e.preventDefault();
+        router.post('/logout');
+    };
+
+    const profileForm = useForm({
+        full_name: currentUser?.fullName || currentUser?.full_name || '',
+        email: currentUser?.email || 'student@clsu2.edu.ph',
+        course: 'Bachelor of Science in Information Technology',
+        skills: 'React, Laravel, MySQL, Tailwind CSS',
+    });
+
     return (
-        <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans">
-            <Head title={`${profile?.fullName || 'Freelancer Profile'} - URaket`} />
-            
-            <header className="w-full border-b bg-white sticky top-0 z-40">
-                <div className="max-w-[1440px] mx-auto px-6 md:px-20 h-24 flex items-center justify-between">
-                    <Link href="/" className="text-xl font-bold">URaket</Link>
-                    <div className="flex items-center gap-6">
-                        <nav aria-label="Freelancer navigation" className="flex items-center gap-6">
-                            <Link href="/freelancer/dashboard" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">Dashboard</Link>
-                            <Link href="/jobs" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">Job board</Link>
-                            <Link href="/freelancer/applications" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition">Applications</Link>
-                        </nav>
-                        <button onClick={() => router.post('/logout')} className="px-4 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">Log out</button>
+        <div className="min-h-screen bg-gray-50 text-gray-900 font-sans antialiased selection:bg-[#099639]/10">
+            <Head title="My Profile - URaket" />
+
+            <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-40">
+                <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <Link href="/dashboard" className="text-xl font-bold tracking-tight text-gray-900 hover:opacity-80 transition">
+                            URaket
+                        </Link>
+                        <span className="text-[10px] tracking-wider uppercase font-black px-2 py-0.5 bg-[#099639]/10 text-[#099639] rounded border border-[#099639]/20">
+                            Freelancer
+                        </span>
                     </div>
+
+                     <nav aria-label="Dashboard Navigation" className="flex items-center gap-6 text-sm font-medium text-gray-600">
+                        <Link href="/dashboard" className="hover:text-gray-900 transition">Dashboard</Link>
+                        <Link href="/freelancer/applications" className="hover:text-gray-900 transition">My Applications</Link>
+                        <Link href="/freelancer/profile" className="text-[#099639] font-bold transition">Profile</Link>
+                        <button onClick={handleLogout} className="hover:text-gray-900 transition cursor-pointer font-medium">
+                            Log out
+                        </button>
+                    </nav>
                 </div>
             </header>
 
-            <main className="max-w-3xl mx-auto px-6 py-12 w-full flex flex-col gap-8">
-                <Link href="/freelancer/dashboard" className="text-xs font-bold text-gray-400">&larr; BACK TO DASHBOARD</Link>
-                
-                {loadError ? (
-                    <p role="alert" className="text-sm font-medium text-red-500">{loadError}</p>
-                ) : (
-                    <div className="flex flex-col gap-10">
-                        {/* Summary Header Identification */}
-                        <section className="flex flex-col gap-1.5 border-b pb-4">
-                            <h1 className="text-2xl font-bold tracking-tight">{profile?.fullName}</h1>
-                            {profile?.college && <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider block">{profile.college}</span>}
-                        </section>
+            <main className="max-w-7xl w-full mx-auto px-6 py-10 flex flex-col gap-10">
+                <div className="flex flex-col gap-1">
+                    <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Freelancer Profile</h1>
+                    <p className="text-sm text-gray-500">Manage your student digital identity, review account settings, and update your skill credentials.</p>
+                </div>
 
-                        {profile?.about && (
-                            <section aria-labelledby="about-heading" className="flex flex-col gap-2">
-                                <h2 id="about-heading" className="text-sm font-bold text-gray-400 uppercase tracking-wider">About</h2>
-                                <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-wrap">{profile.about}</p>
-                            </section>
-                        )}
+                <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                        <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Account Role</h3>
+                        <p className="text-2xl font-bold text-[#099639] leading-none uppercase tracking-wide text-sm mt-2">Student</p>
+                    </div>
 
-                        {profile?.resumeLink && (
-                            <section aria-labelledby="resume-heading" className="flex flex-col gap-2 border-t pt-4">
-                                <h2 id="resume-heading" className="text-sm font-bold text-gray-400 uppercase tracking-wider">Resume</h2>
-                                <a href={profile.resumeLink} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-blue-600 underline hover:text-blue-800 self-start">View uploaded portfolio resume document &rarr;</a>
-                            </section>
-                        )}
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                        <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Verification Status</h3>
+                        <p className="text-2xl font-bold text-gray-900 leading-none text-sm mt-2 flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-[#099639]"></span> Verified Student
+                        </p>
+                    </div>
 
-                        {/* Skills Chips Matrix Grid Loops */}
-                        <section aria-labelledby="skills-heading" className="flex flex-col gap-3 border-t pt-4">
-                            <h2 id="skills-heading" className="text-sm font-bold text-gray-400 uppercase tracking-wider">Skills</h2>
-                            {profile?.skills?.length > 0 ? (
-                                <div className="flex flex-wrap gap-1.5">
-                                    {profile.skills.map(skill => (
-                                        <span key={skill.id} className="text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-600 px-3 py-1 rounded-md">{skill.name}</span>
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                        <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Campus Division</h3>
+                        <p className="text-2xl font-bold text-gray-900 leading-none text-sm mt-2 truncate">CLSU Main Campus</p>
+                    </div>
+
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                        <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Security Tier</h3>
+                        <p className="text-2xl font-bold text-gray-900 leading-none text-sm mt-2">Active Member</p>
+                    </div>
+                </section>
+
+                <div className="flex flex-col gap-4">
+                    <div className="border-b border-gray-100 pb-3">
+                        <h2 className="text-base font-bold text-gray-900 tracking-tight">Account Information</h2>
+                    </div>
+
+                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm max-w-3xl w-full">
+                        <form className="space-y-6">
+                            <div>
+                                <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Full Name</label>
+                                <input type="text" readOnly disabled value={profileForm.data.full_name} className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-sm text-gray-500 outline-none cursor-not-allowed" />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">CLSU Email Address</label>
+                                <input type="email" readOnly disabled value={profileForm.data.email} className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-sm text-gray-500 outline-none cursor-not-allowed" />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">College Course / Track</label>
+                                <input type="text" readOnly disabled value={profileForm.data.course} className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-sm text-gray-500 outline-none cursor-not-allowed" />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Your Skill Badges</label>
+                                <div className="flex flex-wrap gap-2 mt-1">
+                                    {profileForm.data.skills.split(',').map((skill, index) => (
+                                        <span key={index} className="bg-green-50 text-[#099639] border border-green-200/60 text-xs font-bold px-3 py-1 rounded-lg">
+                                            {skill.trim()}
+                                        </span>
                                     ))}
                                 </div>
-                            ) : (
-                                <p className="text-sm text-gray-400">No core skill parameters cataloged yet.</p>
-                            )}
-                        </section>
-
-                        {/* Historical Clients Feedback Matrix */}
-                        <section aria-labelledby="reviews-heading" className="flex flex-col gap-4 border-t pt-4">
-                            <h2 id="reviews-heading" className="text-base font-bold text-gray-900">Endorsements & Reviews</h2>
-                            {!profile?.reviews || profile.reviews.length === 0 ? (
-                                <p className="text-sm text-gray-400 font-medium">No system contract performance reviews recorded yet.</p>
-                            ) : (
-                                <ul className="flex flex-col gap-4">
-                                    {profile.reviews.map((review, idx) => (
-                                        <li key={idx} className="border border-gray-200 p-5 rounded-xl bg-white shadow-sm flex flex-col gap-1.5 hover:border-gray-300 transition">
-                                            <span className="text-sm font-bold text-gray-900">{review.clientName}</span>
-                                            <span className="text-xs font-bold text-[#099639]">Rating: {review.rating} / 5 Stars</span>
-                                            <p className="text-sm italic text-gray-600 mt-1">"{review.comment}"</p>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </section>
+                            </div>
+                        </form>
                     </div>
-                )}
+                </div>
             </main>
         </div>
     );
