@@ -45,24 +45,24 @@ export default function Application({ applications = [] }) {
                 </div>
 
                 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
-                        <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Total Pitches</h3>
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
+                        <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Total Applications</h3>
                         <p className="text-2xl font-bold text-gray-900 leading-none">{totalApplications}</p>
                     </div>
 
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
                         <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Active Applications</h3>
                         <p className="text-2xl font-bold text-gray-900 leading-none">{activePitches}</p>
                     </div>
 
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
                         <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Hired Positions</h3>
-                        <p className="text-2xl font-bold text-gray-900 leading-none text-[#099639]">{acceptedGigs}</p>
+                        <p className="text-2xl font-bold text-[#099639] leading-none">{acceptedGigs}</p>
                     </div>
 
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
                         <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Declined Pitches</h3>
-                        <p className="text-2xl font-bold text-gray-900 leading-none text-red-600">{rejectedPitches}</p>
+                        <p className="text-2xl font-bold text-red-600 leading-none">{rejectedPitches}</p>
                     </div>
                 </section>
 
@@ -103,12 +103,9 @@ export default function Application({ applications = [] }) {
                                         </div>
 
                                         <div className="flex items-center gap-2 self-stretch sm:self-auto justify-end">
-                                            <Link 
-    href={`/freelancer/job/${app?.job_id || app?.job?.id}`} 
-    className="px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition text-xs font-bold text-gray-700 text-center flex-1 sm:flex-initial"
->
-    View Details
-</Link>
+                                            <Link href={`/freelancer/job/${app?.job_id || app?.job?.id}`} className="px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition text-xs font-bold text-gray-700 text-center flex-1 sm:flex-initial">
+                                                View Details
+                                            </Link>
                                         </div>
                                     </div>
 

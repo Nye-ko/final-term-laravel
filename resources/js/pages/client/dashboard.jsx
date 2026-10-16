@@ -85,7 +85,6 @@ export default function ClientDashboard({ currentUser, jobs = [], totalJobs = 0,
                                     <div key={job.id} className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-gray-50/40 transition">
                                         <div className="flex flex-col gap-1.5">
                                             <div className="flex items-center gap-3">
-                                                {/* FIXED: Links correctly route to the client job details matrix breakdown view */}
                                                 <Link href={`/client/job-detail/${job.id}`} className="text-base font-semibold text-gray-900 hover:text-[#099639] hover:underline cursor-pointer transition">
                                                     {job.title}
                                                 </Link>
@@ -95,7 +94,6 @@ export default function ClientDashboard({ currentUser, jobs = [], totalJobs = 0,
                                         </div>
                                         
                                         <div className="flex items-center gap-3">
-                                            {/* FIXED: The applications link points to client/job-detail to immediately display student list layout */}
                                             <Link href={`/client/job-detail/${job.id}`} className="text-xs font-semibold px-4 py-2.5 border border-gray-200 rounded-lg bg-gray-50 text-gray-700 hover:bg-gray-100 cursor-pointer transition flex items-center">
                                                 <span>Applications ({job.applicationsCount || 0})</span>
                                                 {parseInt(job.pendingCount) > 0 && (

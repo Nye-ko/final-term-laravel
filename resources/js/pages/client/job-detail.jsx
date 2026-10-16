@@ -22,9 +22,9 @@ export default function JobDetail({ job, applications = [] }) {
 
     return (
         <div className="min-h-screen bg-gray-50 text-gray-900 font-sans antialiased selection:bg-[#099639]/10">
-            <Head title={`Manage Gig - ${job?.title || 'Loading...'}`} />
+            <Head title={`Manage Job - ${job?.title || 'Loading...'}`} />
             
-            {/* ============================= Navigation Header Bar ============================= */}
+            {/*Main Navigation Header Bar*/}
             <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-40">
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -43,7 +43,7 @@ export default function JobDetail({ job, applications = [] }) {
                 </div>
             </header>
 
-            {/* ============================= Main Workspace Framework Layout ============================= */}
+            {/*Main Workspace Framework Layout*/}
             <main className="max-w-5xl w-full mx-auto px-6 py-10 flex flex-col gap-8">
                 
                 {/* Back to Dashboard Link Shortcut */}
@@ -61,7 +61,6 @@ export default function JobDetail({ job, applications = [] }) {
                             <h1 className="text-2xl font-black text-gray-900 tracking-tight mt-1">{job?.title}</h1>
                         </div>
                         
-                        {/* FIXED: Added support for completed status badge and conditional Complete Gig layout button */}
                         <div className="flex items-center gap-2.5 self-start sm:self-auto">
                             <span className={`text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-md border ${
                                 job?.status === 'open' ? 'bg-green-50 text-[#099639] border-green-200/60' :
@@ -82,7 +81,7 @@ export default function JobDetail({ job, applications = [] }) {
                                     }}
                                     className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-md shadow-sm transition cursor-pointer"
                                 >
-                                    ✓ Complete Gig
+                                    ✓ Complete Job
                                 </button>
                             )}
                         </div>
@@ -113,7 +112,7 @@ export default function JobDetail({ job, applications = [] }) {
                     </div>
                 </section>
 
-                {/* ============================= Applicant Management Roster Grid ============================= */}
+                {/*Applicant Management Roster Grid*/}
                 <section className="flex flex-col gap-4">
                     <h2 className="text-lg font-bold text-gray-900 border-b border-gray-200 pb-2">
                         Incoming Student Applicant Pitches ({applications.length})
@@ -149,7 +148,7 @@ export default function JobDetail({ job, applications = [] }) {
                                         "{app.pitch}"
                                     </div>
 
-                                                                        {/* Action Buttons: Displayed only if the application state loop is pending */}
+                                    {/* Action Buttons: Displayed only if the application state loop is pending */}
                                     {app.status === 'pending' && job?.status === 'open' && (
                                         <div className="flex gap-2 justify-end border-t border-gray-100 pt-3 mt-1">
                                             <button

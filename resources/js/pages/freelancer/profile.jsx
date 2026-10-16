@@ -47,26 +47,26 @@ export default function Profile({ currentUser, metrics = {} }) {
                 </div>
 
                 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
                         <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Account Role</h3>
-                        <p className="text-2xl font-bold text-[#099639] leading-none uppercase tracking-wide text-sm mt-2">Student</p>
+                        <p className="text-sm font-bold text-[#099639] leading-none uppercase tracking-wide text-sm mt-2">Student</p>
                     </div>
 
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
                         <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Verification Status</h3>
-                        <p className="text-2xl font-bold text-gray-900 leading-none text-sm mt-2 flex items-center gap-1.5">
+                        <p className="text-sm font-bold text-gray-900 leading-none text-sm mt-2 flex items-center gap-1.5">
                             <span className="w-2 h-2 rounded-full bg-[#099639]"></span> Verified Student
                         </p>
                     </div>
 
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
                         <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Campus Division</h3>
-                        <p className="text-2xl font-bold text-gray-900 leading-none text-sm mt-2 truncate">CLSU Main Campus</p>
+                        <p className="text-sm font-bold text-gray-900 leading-none text-sm mt-2 truncate">CLSU Main Campus</p>
                     </div>
 
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
                         <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Security Tier</h3>
-                        <p className="text-2xl font-bold text-gray-900 leading-none text-sm mt-2">Active Member</p>
+                        <p className="text-sm font-bold text-gray-900 leading-none text-sm mt-2">Active Member</p>
                     </div>
                 </section>
 

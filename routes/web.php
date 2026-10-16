@@ -10,12 +10,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-// 🌐 1. PUBLIC LANDING HOMEPAGE ENTRY POINT
+//1. PUBLIC LANDING HOMEPAGE ENTRY POINT
 Route::get('/', function () {
     return Inertia::render('welcome');
 });
 
-// 🔑 2. GUEST SYSTEM AUTHENTICATION VISUAL PATHS
+//2. GUEST SYSTEM AUTHENTICATION VISUAL PATHS
 Route::middleware('guest')->group(function () {
     Route::get('/auth/login', function () {
         return Inertia::render('auth/login');
@@ -28,20 +28,20 @@ Route::middleware('guest')->group(function () {
     })->name('signup');
 });
 
-// 📋 3. UNIFIED MARKETPLACE SEARCHABLE GIG BOARD HUB
+//3. UNIFIED MARKETPLACE SEARCHABLE GIG BOARD HUB
 Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
 
-// 🔒 4. PROTECTED USER WORKSPACE INTERFACES (Requires Authentication)
+//4. PROTECTED USER WORKSPACE INTERFACES (Requires Authentication)
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard', LoginRedirectController::class)->name('dashboard');
 
-    // 🖥️ ADMINISTRATOR PLATFORM ACCESS RULE
+    //ADMINISTRATOR PLATFORM ACCESS RULE
     Route::middleware(['role:admin'])->group(function () {
         Route::get('/admin/dashboard', [AdminDashboard::class, 'index'])->name('admin.dashboard');
     });
 
-    // 👔 CLIENT / FACULTY PORTAL ACCESS RULES
+    //CLIENT / FACULTY PORTAL ACCESS RULES
     Route::middleware(['role:client'])->group(function () {
         Route::get('/client/dashboard', [ClientDashboard::class, 'index'])->name('client.dashboard');
         Route::get('/client/create-job', [JobController::class, 'create'])->name('client.create-job');
@@ -55,11 +55,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         })->name('client.profile');
     });
 
-    // 🎓 STUDENT / FREELANCER PORTAL ACCESS RULES
+    //STUDENT / FREELANCER PORTAL ACCESS RULES
     Route::middleware(['role:freelancer'])->group(function () {
         Route::get('/freelancer/dashboard', [FreelancerDashboard::class, 'index'])->name('freelancer.dashboard');
         
-        // 📋 1. FIXED APPLICATIONS ROUTE
+        //1. FIXED APPLICATIONS ROUTE
         Route::get('/freelancer/applications', function () {
             $user = auth()->user();
 

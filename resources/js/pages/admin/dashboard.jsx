@@ -43,7 +43,7 @@ export default function AdminDashboard({ stats, reports: initialReports, liveMes
 
             {/* Navigation Header Section */}
             <header className="w-full border-b">
-                <div className="max-w-[1440px] mx-auto px-20 h-24 flex items-center justify-between">
+                <div className="max-w-360 mx-auto px-20 h-24 flex items-center justify-between">
                     <div className="flex items-baseline gap-3">
                         <Link href="/" className="text-xl font-semibold tracking-tight">URaket</Link>
                         <span className="text-sm text-gray-500">Admin</span>
@@ -52,7 +52,7 @@ export default function AdminDashboard({ stats, reports: initialReports, liveMes
                     <button
                         type="button"
                         onClick={() => router.post('/logout')}
-                        className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-black bg-white border border-[#D3D3D3] rounded-[6px] transition-all cursor-pointer hover:bg-black hover:text-white"
+                        className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-black bg-white border border-[#D3D3D3] rounded-[6px] transition-all cursor-pointer hover:bg-green-500 hover:text-white"
                     >
                         Log out
                     </button>
@@ -61,7 +61,7 @@ export default function AdminDashboard({ stats, reports: initialReports, liveMes
 
             {/* Main Application Body Workspace Container */}
             <main className="flex-1">
-                <div className="max-w-[1440px] mx-auto px-20 py-16 flex flex-col gap-16">
+                <div className="max-w-360 mx-auto px-20 py-16 flex flex-col gap-16">
 
                     {liveMessage && (
                         <p role="status" className="text-sm text-green-600">

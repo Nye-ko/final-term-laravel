@@ -102,9 +102,7 @@ export default function JobBoardIndex({ currentUser, jobs = [], skills = [], cli
             <main className="flex-1">
                 <div className="max-w-360 mx-auto px-6 md:px-20 py-16 flex flex-col gap-10">
                     
-                    {/* ========================================================================= */}
-                    {/* 👤 TYPE A VIEWPORT MAPPING VIEW: FREELANCER & ADMIN PLATFORM BOARD         */}
-                    {/* ========================================================================= */}
+                    {/*TYPE A VIEWPORT MAPPING VIEW: FREELANCER & ADMIN PLATFORM BOARD*/}
                     {(isFreelancer || isAdmin) && (
                         <>
                             <div className="flex flex-col gap-2">
@@ -167,7 +165,7 @@ export default function JobBoardIndex({ currentUser, jobs = [], skills = [], cli
                                         <p className="text-xs text-gray-400 mt-1">Try resetting chips selection filters or search tags input string keys.</p>
                                     </div>
                                 ) : (
-                                                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {filteredJobs.map(job => (
                                             <article key={job.id} className="border border-gray-200 p-6 rounded-xl shadow-sm hover:shadow-md transition flex flex-col justify-between gap-5 bg-white">
                                                 <div className="flex flex-col gap-3">
@@ -204,9 +202,7 @@ export default function JobBoardIndex({ currentUser, jobs = [], skills = [], cli
                         </>
                     )}
 
-                    {/* ========================================================================= */}
-                    {/* 💼 TYPE B VIEWPORT MAPPING VIEW: CLIENT SUBMISSION LISTINGS HUB           */}
-                    {/* ========================================================================= */}
+                    {/*TYPE B VIEWPORT MAPPING VIEW: CLIENT SUBMISSION LISTINGS HUB*/}
                     {isClient && (
                         <>
                             <div className="flex items-center justify-between gap-4 border-b border-gray-100 pb-4">
@@ -243,9 +239,7 @@ export default function JobBoardIndex({ currentUser, jobs = [], skills = [], cli
                 </div>
             </main>
 
-            {/* ========================================================================= */}
-            {/* 📋 REGISTRATION MODAL FORM SLIDE LAYOUT OVERLAY                           */}
-            {/* ========================================================================= */}
+            {/*REGISTRATION MODAL FORM SLIDE LAYOUT OVERLAY*/}
             {isApplyModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
                     <div className="fixed inset-0 bg-black/60 backdrop-blur-md" onClick={closeApplyModal}></div>

@@ -50,22 +50,22 @@ export default function Dashboard({ currentUser, applications = [], recommendedJ
 
                 {/* ============================= Dashboard Metric Info Card Grids ============================= */}
                 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
-                        <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Total Pitches</h3>
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
+                        <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Total Applications</h3>
                         <p className="text-2xl font-bold text-gray-900 leading-none">{totalApplications}</p>
                     </div>
 
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
                         <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Active Applications</h3>
                         <p className="text-2xl font-bold text-gray-900 leading-none">{activePitches}</p>
                     </div>
 
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
                         <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Hired Positions</h3>
-                        <p className="text-2xl font-bold text-gray-900 leading-none text-[#099639]">{acceptedGigs}</p>
+                        <p className="text-2xl font-bold text-[#099639] leading-none">{acceptedGigs}</p>
                     </div>
 
-                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-[96px] flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm min-h-24 flex flex-col justify-between">
                         <h3 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Marketplace Openings</h3>
                         <p className="text-2xl font-bold text-gray-900 leading-none">{recommendedJobs.length}</p>
                     </div>

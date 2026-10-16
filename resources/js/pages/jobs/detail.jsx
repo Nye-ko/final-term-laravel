@@ -65,7 +65,7 @@ export default function Detail({ job, userRole, isOwner, hasApplied, existingApp
             {/* DYNAMIC VIEW MANAGEMENT SYSTEM PANEL */}
             <div className="mt-8 border-t pt-6">
                 
-                {/* INTERFACE LAYER A: USER IS A STUDENT FREELANCER */}
+                {/*STUDENT FREELANCER */}
                 {userRole === 'freelancer' && (
                     <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 shadow-sm">
                         {hasApplied ? (
@@ -116,7 +116,7 @@ export default function Detail({ job, userRole, isOwner, hasApplied, existingApp
                     </div>
                 )}
 
-                {/* INTERFACE LAYER B: USER IS THE FACULTY CLIENT WHO POSTED IT */}
+                {/*FACULTY CLIENT*/}
                 {userRole === 'client' && isOwner && (
                     <div>
                         <h3 className="text-xl font-bold text-gray-900 mb-2">Incoming Student Applicant Bids ({applications.length})</h3>

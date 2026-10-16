@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm, Head, Link } from '@inertiajs/react';
 
 export default function JobDetail({ job, hasApplied, existingApplication }) {
-    // 🛡️ Guard clause to handle empty or loading job models safely
+    // Guard clause to handle empty or loading job models safely
     if (!job) {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6 font-sans">
@@ -14,12 +14,12 @@ export default function JobDetail({ job, hasApplied, existingApplication }) {
         );
     }
 
-    // 📋 1. Initialize the Inertia form infrastructure with the required database keys
+    // 1. Initialize the Inertia form infrastructure with the required database keys
     const freelancerForm = useForm({
         message: ''
     });
 
-    // 🚀 2. Process form submission cleanly to the ApplicationController endpoint
+    // 2. Process form submission cleanly to the ApplicationController endpoint
     const handleFreelancerSubmit = (e) => {
         e.preventDefault();
         
@@ -72,7 +72,6 @@ export default function JobDetail({ job, hasApplied, existingApplication }) {
                 {/* Action Interface Workspace Module */}
                 <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 shadow-sm">
                     {hasApplied ? (
-                        /* Case A: Student has submitted a proposal already */
                         <div>
                             <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
                                 <span>🎉</span> Pitch Already Submitted

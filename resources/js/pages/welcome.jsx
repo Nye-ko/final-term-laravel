@@ -80,12 +80,12 @@ export default function Welcome() {
                         <img 
                             src="/Siever_Silver.png" 
                             alt="Silver photo of Siever"
-                            className="w-full aspect-[4/5] object-cover rounded-2xl  border-gray-100" 
+                            className="w-full `aspect-[4/5]` object-cover rounded-2xl  border-gray-100" 
                         />
                     </div>
                 </section>
 
-                {/* ======================== How it works ======================== */}
+                {/*How it works*/}
                 <section id="how-it-works" className="max-w-360 mx-auto px-6 md:px-20 py-20 border-t border-gray-100">
                     <h2 className="text-3xl font-semibold mb-12">How it works</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -116,7 +116,7 @@ export default function Welcome() {
                 </section>
             </main>
 
-            {/* ============================ Footer ============================ */}
+            {/*Footer*/}
             <footer className="w-full border-t border-gray-100">
                 <div className="max-w-360 mx-auto px-6 md:px-20 py-10 flex items-center justify-between text-sm text-gray-500">
                     <span>URaket</span>
@@ -124,7 +124,7 @@ export default function Welcome() {
                 </div>
             </footer>
 
-            {/* ======================== Role Select Modal ======================== */}
+            {/*Role Select Modal*/}
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center">
                     

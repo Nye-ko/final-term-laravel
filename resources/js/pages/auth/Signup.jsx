@@ -66,7 +66,7 @@ export default function signup({ role }) {
                     </div>
 
                     {!isRoleSelected ? (
-                        /* ================= State A: Role Selection ================= */
+                        /*State A: Role Selection*/
                         <section aria-labelledby="role-heading" className="w-full flex flex-col justify-start items-start gap-5">
                             <div className="flex flex-col gap-1 w-full">
                                 <h2 id="role-heading" className="text-[18px] font-medium text-black">Choose your role</h2>
@@ -92,7 +92,7 @@ export default function signup({ role }) {
                             </div>
                         </section>
                     ) : (
-                        /* ================= State B: Inputs Form Details ================= */
+                        /*State B: Inputs Form Details*/
                         <>
                             {/* Role Summary Banner */}
                             <div className="w-full min-h-27.5 p-4.5 border border-[#D9D9D9] rounded-lg flex items-center justify-between gap-4">
